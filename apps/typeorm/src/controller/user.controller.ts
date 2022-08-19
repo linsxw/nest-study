@@ -1,15 +1,12 @@
-import { Controller, Get, HttpException } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
+import { UserService } from '../service/user.service';
 
 @Controller('user')
 export class UserController {
-  @Get()
-  test() {
-    throw new HttpException('测试下公共', 500);
-    return 'test';
-  }
+  constructor(private service: UserService) {}
 
-  @Get('list')
-  list() {
-    return [];
+  @Get()
+  async list() {
+    return this.service.list();
   }
 }

@@ -1,8 +1,10 @@
 import { Global, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Menu } from './models/menu.model';
+import { Role } from './models/role.model';
 import { User } from './models/user.model';
 
-const models = TypeOrmModule.forFeature([User]);
+const models = TypeOrmModule.forFeature([User, Role, Menu]);
 
 @Global()
 @Module({
@@ -14,8 +16,9 @@ const models = TypeOrmModule.forFeature([User]);
       username: 'root',
       password: '123456',
       database: 'nest-study',
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
+      entities: [User, Role, Menu],
       synchronize: true,
+      logging: true,
     }),
     models,
   ],
