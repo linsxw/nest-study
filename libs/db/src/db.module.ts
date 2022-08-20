@@ -17,7 +17,7 @@ const models = TypeOrmModule.forFeature([User, Role, Menu]);
       password: '123456',
       database: 'nest-study',
       entities: [User, Role, Menu],
-      synchronize: true,
+      synchronize: false,
       logging: true,
     }),
     models,

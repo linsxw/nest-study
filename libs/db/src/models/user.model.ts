@@ -1,3 +1,4 @@
+import { ApiProperty } from '@nestjs/swagger';
 import {
   Column,
   CreateDateColumn,
@@ -12,21 +13,27 @@ import { Role } from './role.model';
 @Entity('sys_user')
 export class User {
   @PrimaryGeneratedColumn()
+  @ApiProperty({ description: '主键' })
   id: number;
 
   @Column()
+  @ApiProperty({ description: '用户名' })
   username: string;
 
   @Column()
+  @ApiProperty({ description: '密码' })
   password: string;
 
   @Column()
+  @ApiProperty({ description: '状态' })
   status: number;
 
   @CreateDateColumn()
+  @ApiProperty({ description: '创建时间' })
   createTime: Date;
 
   @UpdateDateColumn()
+  @ApiProperty({ description: '更新时间' })
   updateTime: Date;
 
   @ManyToMany(() => Role, (role) => role.users)
