@@ -5,6 +5,7 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { Role } from './role.model';
 
 @Entity('sys_menu')
 export class Menu {
@@ -28,4 +29,6 @@ export class Menu {
 
   @UpdateDateColumn({ name: 'update_time' })
   updateTime: Date;
+
+  roles: Role[];
 }

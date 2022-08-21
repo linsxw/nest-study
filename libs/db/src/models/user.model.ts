@@ -28,11 +28,11 @@ export class User {
   @ApiProperty({ description: '状态' })
   status: number;
 
-  @CreateDateColumn()
+  @CreateDateColumn({ name: 'create_time' })
   @ApiProperty({ description: '创建时间' })
   createTime: Date;
 
-  @UpdateDateColumn()
+  @UpdateDateColumn({ name: 'update_time' })
   @ApiProperty({ description: '更新时间' })
   updateTime: Date;
 
